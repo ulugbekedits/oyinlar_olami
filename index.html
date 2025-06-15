@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O‘yinlar Olami - Ro‘yxatdan o‘tish</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      color: #ff00ff;
+      margin-bottom: 20px;
+    }
+
+    label {
+      color: #00ffff;
+      font-size: 18px;
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #00ffff;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #00ffff;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #ccf;
+    }
+
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(45deg, #00ff88, #00ff00);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00ff88;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>OYINLAR OLAMI</h1>
+    <form id="registerForm">
+      <label for="fname">Ismingizni kiriting:</label>
+      <input type="text" id="fname" placeholder="Ismingiz..." required />
+
+      <label for="lname">Familyangizni kiriting:</label>
+      <input type="text" id="lname" placeholder="Familyangiz..." required />
+
+      <div class="error" id="errorMsg"></div>
+
+      <button type="submit" class="btn">Tasdiqlash</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const fname = document.getElementById("fname").value.trim();
+      const lname = document.getElementById("lname").value.trim();
+      const error = document.getElementById("errorMsg");
+
+      if (!fname || !lname) {
+        error.textContent = "Iltimos, ismingiz va familyangizni to‘liq kiriting!";
+      } else {
+        error.textContent = "";
+        window.location.href = "/asosiy2.html";
+      }
+    });
+  </script>
+
+</body>
+</html>
